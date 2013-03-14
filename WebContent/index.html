@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+       <head>
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+			  <!-- <link rel="stylesheet" type="text/css" href="css.css"> -->
+   			  <script src="resources/sap-ui-core.js"
+                      id="sap-ui-bootstrap"
+                      data-sap-ui-libs="sap.ui.commons"
+                      data-sap-ui-theme="sap_platinum" > //sap_platinum, sap_ux, sap_edding, sap_system, sap_base, sap_hcb, sap_goldreflection
+              </script>
+              <!-- add sap.ui.table,sap.ui.ux3 and/or other libraries to 'data-sap-ui-libs' if required -->
+
+   			  <script>
+			         sap.ui.localResources("myapplication2");
+                     var view = sap.ui.view({id:"idmyview1", viewName:"myapplication2.myview", type:sap.ui.core.mvc.ViewType.JS});
+   			         view.placeAt("content");
+   			  </script>
+
+       </head>
+       <body class="sapUiBody" role="application">
+              <center>
+              	<h1><div id="headingForm"></div></h1>
+              
+               <br />
+			   <div id="sample1"></div>
+			  </center>
+           
+    
+    <script>
+    
+   //Create a layout instance for the login form
+    var oLayout = new sap.ui.commons.layout.AbsoluteLayout({width:"355px",height:"300px"});
+    oLayout.addStyleClass("CustomStyle"); //Add some additional styling for the border
+
+    var oLabel = new sap.ui.commons.Label({text:"Användarnamn"});
+    var oNameInput = new sap.ui.commons.TextField({width:"190px"});
+    //var oLabelForgotPassword = new sap.ui.commons.Label({text:"Glöm lösenord?"});
+    oLabel.setLabelFor(oNameInput);
+    oLayout.addContent(oLabel, {right:"248px",top:"20px"});
+    oLayout.addContent(oNameInput, {left:"110px",top:"20px"});
+
+    oLabel = new sap.ui.commons.Label({text:"Lösenord"});
+    oPWInput = new sap.ui.commons.PasswordField({width:"190px"});
+    oLabel.setLabelFor(oPWInput);
+    oLayout.addContent(oLabel, {right:"248px",top:"62px"});
+    oLayout.addContent(oPWInput, {left:"110px",top:"62px"});
+
+    var oLoginButton = new sap.ui.commons.Button({text:"Login",width:"133px"});
+    oLoginButton.setHeight("4em");
+    oLoginButton.attachPress(function(){window.location = 'efterInloggning.html';});
+    oLayout.addContent(oLoginButton, {left:"110px",top:"104px"});
+    
+
+    // Attach the layout to the page
+    oLayout.placeAt("sample1");
+    
+    // create the elements 
+    var oLabelForm = new sap.ui.commons.Label();
+    var oLabelUsername = new sap.ui.commons.Label();
+    var oLabelPassword = new sap.ui.commons.Label(); 
+  
+    
+    var oTextFieldUsername = new sap.ui.commons.TextField();
+    var oTextFieldPassword = new sap.ui.commons.TextField();
+    
+    var oButtonSend = new sap.ui.commons.Button(); 
+    var oButtonQuit = new sap.ui.commons.Button();
+    
+    
+    oLabelForm.setText("ClareTime");
+    oLabelUsername.setText("Användarnamn:");
+    oLabelPassword.setText("Lösenord:");
+    //oLabelForgotPassword.setText("Glömt lösenord?");
+    
+    oButtonSend.setText("Logga in"); 
+    oButtonSend.setWidth("11.4em");
+    oButtonSend.setHeight("50px");
+  	
+    // connect the elements with the previously created <div>:s
+    oLabelForm.placeAt("headingForm"); 
+    
+
+    
+    // show messagebox when clicking the send button
+   // oButtonSend.onclick = function(oEvent) {
+    //	window.location = 'efterInloggning.html';
+     //}
+    
+    
+ 	
+    // show messagebox when clicking the quit button
+    /*oButtonQuit.onclick = function(oEvent) {
+    	$(function () {
+    		sap.ui.commons.MessageBox.alert("Du tryckte på " + oButtonQuit.getText());
+    	})
+    }*/
+   
+  </script>
+
+  <div id="content"></div>
+  
+       </body>
+</html>

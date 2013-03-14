@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+       <head>
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+   			  <script src="resources/sap-ui-core.js"
+                      id="sap-ui-bootstrap"
+                      data-sap-ui-libs="sap.ui.commons"
+                      data-sap-ui-theme="sap_goldreflection" >
+              </script>
+              <!-- add sap.ui.table,sap.ui.ux3 and/or other libraries to 'data-sap-ui-libs' if required -->
+
+   			  <script>
+			         sap.ui.localResources("myapplication2");
+                     var view = sap.ui.view({id:"idmyview1", viewName:"myapplication2.myview", type:sap.ui.core.mvc.ViewType.JS});
+   			         view.placeAt("content");
+   			  </script>
+
+       </head>
+       <body class="sapUiBody" role="application">
+               <div id="headingForm"></div>
+               <br />
+               <div id="contentActivityList"></div>
+               <div id="contentActivity1"></div>
+               <div id="contentActivity2"></div>
+               <br />
+               <div id="contentPasswordLabel"></div>
+               <div id="contentPasswordTextField"></div>
+               <br />
+              <div id="contentButton1"></div>
+              <br /> <br />
+              <div id="contentButton2"></div>
+              <br />
+    
+    <script>
+    // create the elements 
+    var oLabelForm = new sap.ui.commons.Label();
+    var oLabelActivityList = new sap.ui.commons.Label();
+    var oLabelActivity1 = new sap.ui.commons.Label();
+    var oLabelActivity2 = new sap.ui.commons.Label();
+    
+    var oButtonTimeReportOverview = new sap.ui.commons.Button();
+    var oButtonMySettings = new sap.ui.commons.Button();
+    
+    oLabelForm.setText("Vilken månad vill du tidsrapportera?");
+    oLabelActivityList.setText("Aktivitetslista");
+    oLabelActivity1.setText("30 dagar sen: Tidsrapportera Maj");
+    oLabelActivity2.setText("45 dagar sen: Tidsrapportera Juni");
+  	
+    oButtonTimeReportOverview.setText("Mina tidsrapporter");
+    oButtonMySettings.setText("Mina inställningar");
+    
+    // connect the elements with the previously created <div>:s
+    oLabelForm.placeAt("headingForm"); 
+    
+    //oLabelActivityList.placeAt("contentActivityList");
+    //oLabelActivity1.placeAt("contentActivity1");
+    //oLabelActivity2.placeAt("contentActivity2");
+    
+    //oLabelPassword.placeAt("contentPasswordLabel");
+    //oTextFieldPassword.placeAt("contentPasswordTextField");
+    
+    //oButtonTimeReportOverview.placeAt("contentButton1");
+    //oButtonMySettings.placeAt("contentButton2");
+    // show messagebox when clicking the send button
+    //oButtonSend.onclick = function(oEvent) {
+    //	window.location = 'efterInloggning.html';
+    // }
+    
+    
+ 	
+    // show messagebox when clicking the quit button
+    /*oButtonQuit.onclick = function(oEvent) {
+    	$(function () {
+    		sap.ui.commons.MessageBox.alert("Du tryckte på " + oButtonQuit.getText());
+    	})
+    }*/
+   
+  </script>
+
+  <div id="content"></div>
+  
+       </body>
+</html>
