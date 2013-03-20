@@ -61,17 +61,17 @@ sap.ui.jsview("myapplication2.efterinloggning", {
 
     		// create test data
     	 	var dataObject = { data : [
-    				{lastName: "08:00", name: "16:00",  date: "0", src: "pictures/axfoodlogo.jpg", gender: "male" , country: "Axfood"},
-    				{lastName: "08:00", name: "16:00",  date: "-1", src: "pictures/axfoodlogo.jpg", gender: "female" , country: "Axfood"},
-    				{lastName: "09:00", name: "12:00",  date: "-2", src: "pictures/ericssonlogo.jpg", gender: "male", country:  "Ericsson"},
-    				{lastName: "08:00", name: "17:00",  date: "-3", src: "pictures/ericssonlogo.jpg", gender: "female", country: "Ericsson"},
-    				{lastName: "08:00", name: "16:00",  date: "-4", src: "pictures/axfoodlogo.jpg", gender: "female" , country: "Axfood"},
-    				{lastName: "09:00", name: "16:00",  date: "-5", src: "pictures/axfoodlogo.jpg", gender: "male", country: "Axfood"},
-    				{lastName: "08:00", name: "16:00", date: "-6", src: "pictures/collectumlogo.png", gender: "male", country:  "Collectum"},
-    				{lastName: "08:00", name: "15:00",  date: "-7", src: "pictures/collectumlogo.png", gender: "female", country: "Collectum"},
-    				{lastName: "09:00", name: "14:00", date: "-8", src: "pictures/axfoodlogo.jpg", gender: "female", country: "Axfood"},
-    				{lastName: "08:00", name: "13:00", date: "-9", src: "pictures/axfoodlogo.jpg", gender: "female", country: "Axfood"},
-    				{lastName: "10:00", name: "17:00", date: "-10", src: "pictures/collectumlogo.png", gender: "female", country:  "Collectum"},],
+    				{lastName: "Alltid hela timmar?", name: "16:00",  date: "0", src: "pictures/axfoodlogo.jpg", gender: "male" , country: "Axfood"},
+    				{lastName: "8", name: "16:00",  date: "-1", src: "pictures/axfoodlogo.jpg", gender: "female" , country: "Axfood"},
+    				{lastName: "9", name: "12:00",  date: "-2", src: "pictures/ericssonlogo.jpg", gender: "male", country:  "Ericsson"},
+    				{lastName: "8", name: "17:00",  date: "-3", src: "pictures/ericssonlogo.jpg", gender: "female", country: "Ericsson"},
+    				{lastName: "8", name: "16:00",  date: "-4", src: "pictures/axfoodlogo.jpg", gender: "female" , country: "Axfood"},
+    				{lastName: "9", name: "16:00",  date: "-5", src: "pictures/axfoodlogo.jpg", gender: "male", country: "Axfood"},
+    				{lastName: "8", name: "16:00", date: "-6", src: "pictures/collectumlogo.png", gender: "male", country:  "Collectum"},
+    				{lastName: "8", name: "15:00",  date: "-7", src: "pictures/collectumlogo.png", gender: "female", country: "Collectum"},
+    				{lastName: "9", name: "14:00", date: "-8", src: "pictures/axfoodlogo.jpg", gender: "female", country: "Axfood"},
+    				{lastName: "8", name: "13:00", date: "-9", src: "pictures/axfoodlogo.jpg", gender: "female", country: "Axfood"},
+    				{lastName: "10", name: "17:00", date: "-10", src: "pictures/collectumlogo.png", gender: "female", country:  "Collectum"},],
     					empty : []
     				};
     		// Increase the number of the lines to more then 100
@@ -115,7 +115,7 @@ sap.ui.jsview("myapplication2.efterinloggning", {
 
     		//configure the RowRepeater
     		oRowRepeater.setDesign("Standard");
-    		oRowRepeater.setNumberOfRows(5);
+    		oRowRepeater.setNumberOfRows(10);
     		oRowRepeater.setCurrentPage(1);
     		oRowRepeater.setTitle(oTitle);
 
@@ -166,12 +166,13 @@ sap.ui.jsview("myapplication2.efterinloggning", {
     		
     		
     		//sluttid
+    		/*
     		control = new sap.ui.commons.TextField();
     		control.bindProperty("value","name");
     		matrixCell = new sap.ui.commons.layout.MatrixLayoutCell();
     		matrixCell.addContent(control);
     		matrixRow.addCell(matrixCell);
-			
+			*/
     		
     		// add row to matrix
     		oRowTemplate.addRow(matrixRow);
