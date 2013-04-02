@@ -12,12 +12,54 @@
                 var view = sap.ui.view({id:"idmyview2", viewName:"myapplication2.efterinloggning", type:sap.ui.core.mvc.ViewType.JS});
 		        view.placeAt("content");
 			</script>
+			<script>
+			$(function() {
+				//$("#datumet").datepicker();
+				//$("#datumet").datepicker({
+				  //  dateFormat: "yy-mm-dd"
+				//}).datepicker("setDate", "0");
+				$.datepicker.setDefaults($.datepicker.regional['sv']);
+				$( "#datepicker" ).datepicker({
+						changeMonth: false,
+				    	changeYear: false,
+				    	showWeek: true,
+				    	firstDay: 1,
+				    	showButtonPanel: false,
+				    	weekHeader: "Vecka",
+						altField: "#datumet",
+				      	altFormat: "DD, d MM, yy",
+						onSelect: function(date) {
+							var week=$.datepicker.iso8601Week(new Date(date));
+							alert(date);
+							alert(week);
+							$("#veckonr").val(week);
+                        	//$('#veckonr').val($.datepicker.formatDate('yy-',new Date(date))+(week<10?'0':'')+week)
+							//alert(date);
+							//$( "#datumet" ).val(date)
+							//var selectedWeek = $( "#datepicker" ).datepicker( "option", "calculateWeek" );
+							//var calculateWeek = $( "#datepicker" ).datepicker( "option", "calculateWeek" );
+							//$("#veckonr").val(selectedWeek);
+							//$( "#datepicker" ).datepicker( "option", "calculateWeek", myWeekCalc );
+						}
+				});
+			  });
+			$(document).ready(
+				$(function() {
+					var week=$.datepicker.iso8601Week(new Date());
+					$("#veckonr").val(week);
+				})	
+			);
+			</script>
+			
 			<link rel="stylesheet" type="text/css" href="css.css">
        <body class="sapUiBody" role="application">
                <div id="appHead"></div> 
                <br />          
 			   <script>
-				    //create the ApplicationHeader control
+			   		var oDatePicker1 = new sap.ui.commons.DatePicker('date1');
+			   </script>
+			   <script>
+			   		//create the ApplicationHeader control
 				    var oAppHeader = new sap.ui.commons.ApplicationHeader("appHeader"); 
 				
 				    //configure the welcome area
@@ -34,7 +76,17 @@
 				    oAppHeader.placeAt("appHead");
 			  </script>
 			  <br /><br />
+			
+			<table><tr><td>
+				Välj vecka: <div id="datepicker"></div>
+				</td><td>
+				Datumet: <input type="text" id="datumet"/>
+				</td><td>
+				Vecka: <input type="text" id="veckonr"/>
+			</td></tr></table>
 			<center><div id="content"></div></center>
+			
+			
        </body>
         
 </html>
