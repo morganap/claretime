@@ -5,7 +5,7 @@
 			<script src="resources/sap-ui-core.js"
                id="sap-ui-bootstrap"
                data-sap-ui-libs="sap.ui.commons"
-               data-sap-ui-theme="sap_platinum" > //sap_platinum, sap_ux, sap_edding, sap_system, sap_base, sap_hcb, sap_goldreflection
+               data-sap-ui-theme="sap_goldreflection" > //sap_platinum, sap_ux, sap_edding, sap_system, sap_base, sap_hcb, sap_goldreflection
            	</script>          
 			<script>
 	       		sap.ui.localResources("myapplication2");
@@ -26,14 +26,14 @@
 				    	firstDay: 1,
 				    	showButtonPanel: false,
 				    	weekHeader: "Vecka",
-						altField: "#datumet",
+						altField: "#date",
 				      	altFormat: "DD, d MM, yy",
 						onSelect: function(date) {
 							var week=$.datepicker.iso8601Week(new Date(date));
-							alert(date);
-							alert(week);
-							$("#veckonr").val(week);
-                        	//$('#veckonr').val($.datepicker.formatDate('yy-',new Date(date))+(week<10?'0':'')+week)
+							//alert(date);
+							//alert(week);
+							$("#week").val(week);
+                        	//$('#weeekNumber').val($.datepicker.formatDate('yy-',new Date(date))+(week<10?'0':'')+week)
 							//alert(date);
 							//$( "#datumet" ).val(date)
 							//var selectedWeek = $( "#datepicker" ).datepicker( "option", "calculateWeek" );
@@ -46,9 +46,80 @@
 			$(document).ready(
 				$(function() {
 					var week=$.datepicker.iso8601Week(new Date());
-					$("#veckonr").val(week);
+					$("#week").val(week);
 				})	
 			);
+			</script>
+			
+			<script>
+				var datePicked = new sap.ui.commons.TextField({
+					id: "date",
+					editable: false
+				});
+				datePicked.placeAt("datePicked");
+				
+				var weekNumber = new sap.ui.commons.TextField({
+					id: "week",
+					editable: false
+				});
+				weekNumber.placeAt("weekNumber");
+				
+				var acceptActivity = new sap.ui.commons.Button({
+					id: "acceptButton",
+					text: "Lägg till"
+				});
+				acceptActivity.attachPress(function() {
+					//rr1.addRow(); hur ska raden se ut?
+				});
+				acceptActivity.placeAt("acceptActivity");
+				
+				// Create a DropdownBox
+				var oDropdownBox1 = new sap.ui.commons.DropdownBox({
+					id: "DropdownBox1",
+					editable: false
+				});
+				oDropdownBox1.setTooltip("Möjliga projekt");
+				oDropdownBox1.setEditable(true);
+				//oDropdownBox1.setWidth("200px");
+				var oItem = new sap.ui.core.ListItem("Project1");
+				oItem.setText("Axfood");
+				oDropdownBox1.addItem(oItem);
+				oItem = new sap.ui.core.ListItem("Project2");
+				oItem.setText("Fora");
+				oDropdownBox1.addItem(oItem);
+				oItem = new sap.ui.core.ListItem("Project3");
+				oItem.setText("Ericsson");
+				oDropdownBox1.addItem(oItem);
+				oItem = new sap.ui.core.ListItem("Project4");
+				oItem.setText("Tre");
+				oDropdownBox1.addItem(oItem);
+				oDropdownBox1.setValue("Välj projekt");
+
+				// Attach the DropdownBox to the page
+				oDropdownBox1.placeAt("chooseProject");
+				
+				// Create a DropdownBox
+				var oDropdownBox1 = new sap.ui.commons.DropdownBox({
+					id: "DropdownBox2",
+					editable: false
+				});
+				oDropdownBox1.setTooltip("Möjliga aktiviteter");
+				oDropdownBox1.setEditable(true);
+				//oDropdownBox1.setWidth("200px");
+				var oItem = new sap.ui.core.ListItem("Activity1");
+				oItem.setText("Admin");
+				oDropdownBox1.addItem(oItem);
+				oItem = new sap.ui.core.ListItem("Activity2");
+				oItem.setText("Sälj");
+				oDropdownBox1.addItem(oItem);
+				oItem = new sap.ui.core.ListItem("Activity3");
+				oItem.setText("Bench");
+				oDropdownBox1.addItem(oItem);
+				oDropdownBox1.setValue("Välj aktivitet");
+
+				// Attach the DropdownBox to the page
+				oDropdownBox1.placeAt("chooseActivity");
+				
 			</script>
 			
 			<link rel="stylesheet" type="text/css" href="css.css">
@@ -58,6 +129,7 @@
 			   <script>
 			   		var oDatePicker1 = new sap.ui.commons.DatePicker('date1');
 			   </script>
+			   
 			   <script>
 			   		//create the ApplicationHeader control
 				    var oAppHeader = new sap.ui.commons.ApplicationHeader("appHeader"); 
@@ -77,15 +149,26 @@
 			  </script>
 			  <br /><br />
 			
-			<table><tr><td>
-				Välj vecka: <div id="datepicker"></div>
-				</td><td>
-				Datumet: <input type="text" id="datumet"/>
-				</td><td>
-				Vecka: <input type="text" id="veckonr"/>
-			</td></tr></table>
-			<center><div id="content"></div></center>
 			
+			<table><tr><td>
+				<div id="datepicker"></div>
+				</td></tr><tr><td>
+				Valt datum: <div id="datePicked"></div>
+				Vald vecka: <div id="weekNumber"></div>
+				</td></tr>
+			<tr><td>
+				Välj projekt: <div id="chooseProject"></div>
+				</td><td>
+				Välj aktivitet: <div id="chooseActivity"></div>
+				</td></tr>
+				<tr><td>
+				<div id="acceptActivity"></div> 
+			</td>
+			</tr>
+			</table>
+			
+			
+			<center><div id="content"></div></center>
 			
        </body>
         
